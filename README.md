@@ -1,7 +1,12 @@
 ## Start the cluster
 
 ```sh
+# if you do not want to build the image for the first time, then already have built one for you from dockerhub
+docker pull thanhtu/spark:2.3.0
+# then start the network
 ./start.sh
+# you can run build to rebuild the image
+./build.sh
 ```
 
 ## Running HelloWorld Analysis on the cluster
