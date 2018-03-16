@@ -69,12 +69,15 @@ services:
     image: spark
     command: /bin/bash
     hostname: spark-driver   
+    environment:
+      SPARK_CONF_DIR: /conf
     tty: true
     ports:
       - 8042:8042
       - 8088:8088
       - 4041:4041
     volumes:      
+      - ./conf/spark-driver:/conf
       - ./data:/tmp/data
       - ./scripts:/scripts
     networks:
