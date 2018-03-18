@@ -33,7 +33,7 @@ MASTER=spark://spark-master:7077 spark-shell -i /scripts/parallelize.scala
 MASTER=spark://spark-master:7077 spark-shell -i /scripts/etl.scala
 ```
 
-> Check the WebUI for master (127.0.0.1:8080) and worker (127.0.0.1:8081) to check the job details, and 127.0.0.1:4041 for event timeline.
+> Check the WebUI for master (127.0.0.1:8080) and worker (127.0.0.1:8081) to check the job details, and 127.0.0.1:4040 for event timeline.
 
 ## Stop the cluster
 

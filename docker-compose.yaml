@@ -14,19 +14,10 @@ services:
       MASTER: spark://spark-master:7077
       SPARK_CONF_DIR: /conf
       SPARK_PUBLIC_DNS: $PUBLIC_DNS
-    expose:
-      - 7001
-      - 7002
-      - 7003
-      - 7004
-      - 7005
-      - 7006
-      - 7077
-      - 6066
-    ports:
-      - 4040:4040
-      - 6066:6066
-      - 7077:7077
+    ports:      
+      # api port
+      - 6066:6066      
+      # master port
       - 8080:8080
     volumes:
       - ./conf/spark-master:/conf
@@ -44,18 +35,14 @@ services:
       SPARK_PUBLIC_DNS: $PUBLIC_DNS
       SPARK_WORKER_CORES: 2
       SPARK_WORKER_MEMORY: 2g
+      # real worker port
       SPARK_WORKER_PORT: 8881
+      # public ui port
       SPARK_WORKER_WEBUI_PORT: 8081
     links:
       - spark-master
-    expose:
-      - 7012
-      - 7013
-      - 7014
-      - 7015
-      - 7016
-      - 8881
     ports:
+      # worker ui port
       - 8081:8081
     volumes:
       - ./conf/spark-worker-1:/conf
@@ -70,12 +57,12 @@ services:
     command: /bin/bash
     hostname: spark-driver   
     environment:
-      SPARK_CONF_DIR: /conf
+      SPARK_PUBLIC_DNS: $PUBLIC_DNS
+      SPARK_CONF_DIR: /conf    
     tty: true
-    ports:
-      - 8042:8042
-      - 8088:8088
-      - 4041:4041
+    ports:      
+      # job port on driver
+      - 4040:4040
     volumes:      
       - ./conf/spark-driver:/conf
       - ./data:/tmp/data
