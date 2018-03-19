@@ -3,9 +3,10 @@
 ```sh
 # if you do not want to build the image for the first time, then already have built one for you from dockerhub
 docker pull thanhtu/spark:2.3.0
-# then start the network
-./start.sh
-# you can run build to rebuild the image
+# then start the network, default is spark image which about to be built
+./start.sh [thanhtu/spark]
+# if you need to run sparkR you should use thanhtu/spark-driver instead for spark-driver image
+# you can run build to rebuild the image or to start your own spark image
 ./build.sh
 ```
 
@@ -26,6 +27,13 @@ spark-shell --master spark://spark-master:7077
 # run from data file in shell
 val textFile = sc.textFile("/tmp/data/hellospark.txt")
 textFile.count()
+
+# to start pyspark for python3, must run
+# ln -s /usr/bin/python3 /usr/bin/python
+
+# if not install sparkR, we can run R then
+# if (!require('devtools')) install.packages('devtools', repos='http://cran.us.r-project.org')
+# devtools::install_github('apache/spark@v2.3.0', subdir='R/pkg')
 ```
 
 **Run from script file**
