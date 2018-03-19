@@ -1,6 +1,6 @@
 name := "chapter04"
-version := "1.0"
-scalaVersion := "2.11.7"
+version := "1.1.1"
+scalaVersion := "2.11.8"
 //ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
 libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "1.6.2"
 

@@ -7,7 +7,8 @@ import org.apache.spark.SparkContext._
 object ScalaApp {
 
   def main(args: Array[String]) {
-    val sc = new SparkContext("local[2]", "First Spark App")
+    val master = "spark://spark-master:7077" // "local[2]"
+    val sc = new SparkContext(master, "First Spark App")
 
     // we take the raw data in CSV format and convert it into a set of records of the form (user, product, price)
     val data = sc.textFile("data/UserPurchaseHistory.csv")

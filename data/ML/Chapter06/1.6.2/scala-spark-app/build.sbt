@@ -1,6 +1,6 @@
 name := "scala-spark-app-6"
 
-version := "1.0"
+version := "1.1.1"
 
 /**
   * Enable 1.6 support
@@ -24,4 +24,4 @@ resolvers ++= Seq(
   "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 )
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"

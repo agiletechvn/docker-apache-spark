@@ -5,7 +5,7 @@
 docker pull thanhtu/spark:2.3.0
 # then start the network, default is spark image which about to be built
 ./start.sh [thanhtu/spark]
-# if you need to run sparkR you should use thanhtu/spark-driver instead for spark-driver image
+# if you need to run sparkR you should use thanhtu/spark instead for spark-driver image
 # you can run build to rebuild the image or to start your own spark image
 ./build.sh
 ```

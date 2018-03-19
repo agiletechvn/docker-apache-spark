@@ -1,6 +1,6 @@
 name := "maths-for-ml"
 
-version := "1.0"
+version := "1.1.1"
 
 libraryDependencies  ++= Seq(
   // other dependencies here
@@ -25,5 +25,5 @@ resolvers ++= Seq(
   "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 )
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
     

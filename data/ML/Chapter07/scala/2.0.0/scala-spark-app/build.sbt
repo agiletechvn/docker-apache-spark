@@ -1,8 +1,8 @@
 name := "scala-spark-app-7"
-version := "1.0"
-scalaVersion := "2.11.7"
+version := "1.1.1"
+scalaVersion := "2.11.8"
 
-val sparkVersion = "2.0.0"
+val sparkVersion = "2.3.0"
 
 libraryDependencies ++= Seq(
 //  "org.scalanlp" %% "breeze" % "0.12",

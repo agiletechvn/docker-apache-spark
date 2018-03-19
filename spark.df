@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 RUN apt-get -y update
 RUN apt-get -y install curl
+# to avoid [working 0%] stuck
+RUN apt-get -y install apt-transport-https
 RUN apt-get -y install software-properties-common
 # only the main depedencies are installed
 RUN apt-get -y --no-install-recommends install apt-utils
@@ -13,17 +15,28 @@ RUN \
   apt-get update && \
   apt-get install -y oracle-java8-installer && \
   rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer
+  rm -rf /var/cache/oracle-jdk8-installer 
 
-# ln -s /usr/bin/python3 /usr/bin/python 
+# link python3
+RUN ln -s /usr/bin/python3 /usr/bin/python 
 
-# apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
-# add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
-# apt-get update && \
-# apt-get install -y libssl-dev libcurl4-openssl-dev r-base && \
-# cd $SPARK_HOME/R/lib/SparkR/  && R -e "devtools::install('.')"
+# install R and sparkR
+RUN \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
+  add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
+  apt-get update && \
+  apt-get install -y libssl-dev libcurl4-openssl-dev r-base && \
+  cd $SPARK_HOME/R/lib/SparkR/  && R -e "devtools::install('.')"
+
+# install sbt
+RUN \
+  echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 && \
+  apt-get update && \
+  apt-get install -y sbt
 
 
+# set evn
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 ENV PATH $PATH:$JAVA_HOME/bin

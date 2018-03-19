@@ -1,8 +1,8 @@
 name := "scala-spark-app"
 
-version := "1.0"
-val sparkVersion = "2.0.0"
-scalaVersion := "2.11.7"
+version := "1.1.1"
+val sparkVersion = "2.3.0"
+scalaVersion := "2.11.8"
 
 
 libraryDependencies ++= Seq(

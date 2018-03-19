@@ -1,5 +1,5 @@
 name := "chapter04"
-version := "1.0"
+version := "1.1.1"
 scalaVersion := "2.11.6"
 
 libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
