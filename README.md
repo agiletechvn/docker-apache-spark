@@ -21,7 +21,7 @@ docker exec -it spark-driver bash
 
 ```sh
 # go to data folder which contains code for spark book
-cd /tmp/data
+# cd /tmp/data
 spark-shell --master spark://spark-master:7077
 # run from data file in shell
 val textFile = sc.textFile("/tmp/data/hellospark.txt")
