@@ -12,7 +12,9 @@ object SparkSGD {
   def main(args: Array[String]): Unit = {
     val m = 4
     val n = 200000
-    val sc = new SparkContext("local[2]", "")
+    val master = "spark://spark-master:7077"
+    // val master = "local[2]"
+    val sc = new SparkContext(master, "")
     val points = sc.parallelize(0 until m, 2).mapPartitionsWithIndex { (idx, iter) =>
       val random = new Random(idx)
       iter.map(i => (1.0, Vectors.dense(Array.fill(n)(random.nextDouble()))))

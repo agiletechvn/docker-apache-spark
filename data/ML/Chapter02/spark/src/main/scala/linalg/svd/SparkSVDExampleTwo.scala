@@ -5,8 +5,9 @@ import org.apache.spark.mllib.linalg.{Matrix, Vector, Vectors}
 import org.apache.spark.mllib.linalg.distributed.RowMatrix
 
 object SparkSVDExampleTwo extends App {
-
-  val spConfig = (new SparkConf).setMaster("local").setAppName("SparkSVDDemo")
+  val master = "spark://spark-master:7077"
+    // val master = "local[2]"
+  val spConfig = (new SparkConf).setMaster(master).setAppName("SparkSVDDemo")
   val sc = new SparkContext(spConfig)
 
 

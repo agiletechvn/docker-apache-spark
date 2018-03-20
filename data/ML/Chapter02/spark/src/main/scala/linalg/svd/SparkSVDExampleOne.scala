@@ -12,7 +12,9 @@ object SparkSVDExampleOne {
       Vectors.dense(6.0, 7.0, 8.0, 2.1, 6.0, 6.7, 6.8),
       Vectors.dense(9.0, 0.0, 1.0, 3.4, 4.3, 1.0, 1.0)
     )
-    val spConfig = (new SparkConf).setMaster("local").setAppName("SparkSVDDemo")
+    val master = "spark://spark-master:7077"
+    // val master = "local[2]"
+    val spConfig = (new SparkConf).setMaster(master).setAppName("SparkSVDDemo")
     val sc = new SparkContext(spConfig)
     val mat: RowMatrix = new RowMatrix(sc.parallelize(denseData, 2))
 

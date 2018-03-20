@@ -29,7 +29,6 @@ parseFields <- function(record) {
 }
 
 parsedRDD <- SparkR:::lapply(data, parseFields)
-# cache(parsedRDD)
 SparkR:::cacheRDD(parsedRDD)
 numPurchases <- SparkR:::countRDD(parsedRDD)
 

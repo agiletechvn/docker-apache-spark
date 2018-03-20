@@ -23,8 +23,9 @@ object SparkMatrix {
 
     val sMatrixTwo: Matrix = Matrices.sparse(3, 2, Array(0, 1, 3), Array(0, 1, 2), Array(5, 6, 7))
     println("sMatrixTwo: \n" + sMatrixTwo)
-
-    val spConfig = (new SparkConf).setMaster("local").setAppName("SparkApp")
+    val master = "spark://spark-master:7077"
+    // val master = "local"
+    val spConfig = (new SparkConf).setMaster(master).setAppName("SparkApp")
     val sc = new SparkContext(spConfig)
     val denseData = Seq(
       Vectors.dense(0.0, 1.0, 2.1),
