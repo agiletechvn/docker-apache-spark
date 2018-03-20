@@ -33,7 +33,7 @@ import org.apache.spark.sql.SparkSession
  * }}}
  */
 object KMeansExample {
-  val PATH = "/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/";
+  val PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7";
 
   def main(args: Array[String]): Unit = {
     // Creates a SparkSession.

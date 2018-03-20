@@ -8,7 +8,7 @@ import org.apache.spark.sql.types.{StringType, StructField, StructType}
   * Created by Rajdeep Dua on 6/12/16.
   */
 object Util {
-  val PATH = "/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/"
+  val PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7"
   val DATA_PATH= "../../../data/ml-100k"
   val PATH_MOVIES = DATA_PATH + "/u.item"
 

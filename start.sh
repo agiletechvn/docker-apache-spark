@@ -6,6 +6,6 @@ IMAGE_CHECK=$(docker images | grep $IMAGE)
 if [[ -z $IMAGE_CHECK ]];then
   ./build.sh
 fi
-echo "Starting spark network, PUBLIC_DNS: $PUBLIC_DNS ..."
+echo "Starting spark network: IMAGE: $IMAGE, PUBLIC_DNS: $PUBLIC_DNS ..."
 PUBLIC_DNS=$PUBLIC_DNS IMAGE=$IMAGE docker-compose up -d
 echo "Done."

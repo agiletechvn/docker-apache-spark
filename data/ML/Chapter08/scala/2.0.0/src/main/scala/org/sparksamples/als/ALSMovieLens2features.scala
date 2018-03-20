@@ -33,7 +33,7 @@ import org.apache.spark.rdd.RDD
  * An example demonstrating ALS.
  */
 object ALSMovieLens2features {
-  val PATH = "/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/";
+  val PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7";
   val DATA_PATH= "../../../data/ml-100k"
   val time = System.currentTimeMillis()
   val formatter = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss")

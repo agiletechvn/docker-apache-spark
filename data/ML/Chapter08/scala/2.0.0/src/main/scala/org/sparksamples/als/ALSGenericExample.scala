@@ -29,7 +29,7 @@ import org.apache.spark.ml.recommendation.ALS
  * An example demonstrating ALS.
  */
 object ALSGenericExample {
-  val SPARK_PATH = "/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/";
+  val SPARK_PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7";
 
   case class Rating(userId: Int, movieId: Int, rating: Float, timestamp: Long)
   def parseRating(str: String): Rating = {

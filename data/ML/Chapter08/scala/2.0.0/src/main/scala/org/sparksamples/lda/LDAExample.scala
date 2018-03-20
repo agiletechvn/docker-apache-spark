@@ -19,7 +19,7 @@ import org.apache.spark.sql.SparkSession
   */
 object LDAExample {
 
-  val SPARK_PATH = "/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/";
+  val SPARK_PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7";
   // Creates a SparkSession
   /*val spark = SparkSession
       .builder

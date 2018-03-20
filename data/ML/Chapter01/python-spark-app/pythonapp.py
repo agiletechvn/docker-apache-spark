@@ -4,12 +4,14 @@ import sys
 from pyspark import SparkContext
 from pyspark import SparkConf
 
-os.environ['SPARK_HOME']="/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7/"
+if not 'SPARK_HOME' in os.environ :
+  os.environ['SPARK_HOME'] = "/usr/local/spark-2.3.0-bin-hadoop2.7"
 
 # Append pyspark  to Python Path
-sys.path.append("/home/ubuntu/work/spark-2.0.0-bin-hadoop2.7")
-
-conf = SparkConf().setAppName("First Spark App").setMaster("local")
+sys.path.append(os.environ['SPARK_HOME'])
+master = "spark://spark-master:7077" 
+# master = "local[2]"
+conf = SparkConf().setAppName("First Spark App").setMaster(master)
 sc = SparkContext(conf=conf)
 
 
