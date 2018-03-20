@@ -1,0 +1,1 @@
+["linalg.fields.ComplexNumber","linalg.fields.GaloisField","linalg.matrix.BreezeMatrix","linalg.matrix.BreezeMatrixOperations","linalg.operations.common","linalg.plot.BreezePlotGaussian","linalg.plot.BreezePlotLine","linalg.sgd.BreezeSGDVector","linalg.vector.Vector"]
