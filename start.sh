@@ -1,5 +1,5 @@
 IMAGE=$1
-: ${IMAGE:=spark}
+: ${IMAGE:=thanhtu/spark}
 PUBLIC_DNS=$(ifconfig | awk '/inet /{print $1}' | grep -v 127.0.0.1 | tail -1)
 IMAGE_CHECK=$(docker images | grep $IMAGE)
 

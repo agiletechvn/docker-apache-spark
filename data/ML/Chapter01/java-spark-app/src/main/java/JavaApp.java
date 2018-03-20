@@ -13,8 +13,10 @@ public class JavaApp {
         JavaSparkContext sc = null;
 
         try {
+
+            String master = "spark://spark-master:7077"; // "local[2]"
 //           ####### create spark context by starting the cluster locally using 2 CPU cores #######
-            sc = new JavaSparkContext("local[2]", "First Spark App");
+            sc = new JavaSparkContext(master, "First Spark App");
 
             JavaRDD<String[]> data = sc.textFile("data/UserPurchaseHistory.csv").map(s -> s.split(","));
 

@@ -35,6 +35,9 @@ RUN \
   apt-get update && \
   apt-get install -y sbt
 
+# install maven
+RUN apt-get -y install maven
+
 
 # set evn
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
