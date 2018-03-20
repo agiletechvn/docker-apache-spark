@@ -1,2 +1,7 @@
-[0m[[0m[33mwarn[0m] [0m[0mthere was one deprecation warning; re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m/tmp/data/ML/Chapter02/breeze/src/main/scala/linalg/vector/SparseVector.scala:13:29: ambiguous implicit values:[0m
+[0m[[0m[31merror[0m] [0m[0m both object IntZero in object Zero of type breeze.storage.Zero.IntZero.type[0m
+[0m[[0m[31merror[0m] [0m[0m and object ShortZero in object Zero of type breeze.storage.Zero.ShortZero.type[0m
+[0m[[0m[31merror[0m] [0m[0m match expected type breeze.storage.Zero[V][0m
+[0m[[0m[31merror[0m] [0m[0m    val sv = SparseVector(5)()[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
