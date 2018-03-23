@@ -38,10 +38,20 @@ RUN \
 # install maven
 RUN apt-get -y install maven
 
+ARG HADOOP_VERSION=2.7.3
+# use hadoop 3.0.0 at your own risk
+# http://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz
+ARG HADOOP_ARCHIVE=http://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
+ENV HADOOP_HOME /usr/local/hadoop-${HADOOP_VERSION}
+ENV HADOOP_CONF_DIR ${HADOOP_HOME}/etc/hadoop
+ENV LD_LIBRARY_PATH ${HADOOP_HOME}/lib/native
+
+# install hadoop
+RUN curl -s ${HADOOP_ARCHIVE} | tar -xzvf -C /usr/local/
 
 # set evn
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV PATH $PATH:$JAVA_HOME/bin
 # RUN curl -s --insecure \
 #  --header "Cookie: oraclelicense=accept-securebackup-cookie;" ${JAVA_ARCHIVE} \
