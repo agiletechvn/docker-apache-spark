@@ -18,6 +18,7 @@ services:
       # api port
       - 6066:6066      
       # master port
+      # export 7077 to run from local ?
       - 8080:8080
     volumes:
       - ./conf/spark-master:/conf
