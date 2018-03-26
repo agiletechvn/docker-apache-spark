@@ -76,4 +76,7 @@ export DISPLAY=[$ip or docker.for.mac.localhost]:$display_number
 # add ip to list
 /opt/X11/bin/xhost + docker.for.mac.localhost
 # need to map /tmp/.X11-unix as well
+
+# then run sample:
+spark-submit --class org.sparksamples.UserRatingsChart --packages org.jfree:jfreechart:1.0.14,com.github.wookietreiber:scala-chart_2.11:latest.integration --master spark://spark-master:7077  target/scala-2.11/chapter04_2.11-1.1.1.jar
 ```
