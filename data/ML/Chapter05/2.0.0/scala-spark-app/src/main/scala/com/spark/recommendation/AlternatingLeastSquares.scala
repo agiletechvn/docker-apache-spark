@@ -67,7 +67,7 @@ object AlternatingLeastSquares {
       XtX.addToEntry(d, d, LAMBDA * U)
     }
     // Solve it with Cholesky
-      new CholeskyDecomposition(XtX).getSolver.solve(Xty)
+    new CholeskyDecomposition(XtX).getSolver.solve(Xty)
   }
 
   def main(args: Array[String]) {
