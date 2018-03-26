@@ -56,3 +56,24 @@ MASTER=spark://spark-master:7077 spark-shell -i /scripts/etl.scala
 ```sh
 ln -s $PWD/data /tmp/data
 ```
+
+On Macosx if you need X11 sharing, first install this one:
+
+```sh
+brew cask install xquartz
+defaults write org.macosforge.xquartz.X11 app_to_run '' # suppress xterm terminal
+open -a XQuartz
+# In the XQuartz preferences, go to the “Security” tab and make sure you’ve got “Allow connections from network clients” ticked:
+```
+
+then in docker container:
+
+```sh
+ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+display_number=`ps -ef | grep "Xquartz :\d" | grep -v xinit | awk '{ print $9; }'`
+# run both local and docker container
+export DISPLAY=[$ip or docker.for.mac.localhost]:$display_number
+# add ip to list
+/opt/X11/bin/xhost + docker.for.mac.localhost
+# need to map /tmp/.X11-unix as well
+```

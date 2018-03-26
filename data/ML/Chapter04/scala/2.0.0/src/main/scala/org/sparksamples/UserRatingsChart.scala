@@ -3,7 +3,7 @@ package org.sparksamples
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.{IntegerType, StructField, StructType}
-
+import org.jfree.data.category.DefaultCategoryDataset
 import scalax.chart.module.ChartFactories
 
 /**
@@ -31,7 +31,7 @@ object UserRatingsChart {
       .load("../../data/ml-100k/u.data")
 
     val rating_nos_by_user = rating_df.groupBy("user_id").count().sort("count")
-    val ds = new org.jfree.data.category.DefaultCategoryDataset
+    val ds = new DefaultCategoryDataset
     rating_nos_by_user.show(rating_nos_by_user.collect().length)
     val rating_nos_by_user_collect =rating_nos_by_user.collect()
 
@@ -42,6 +42,7 @@ object UserRatingsChart {
 
     val step = (max/bins).toInt
     for (i <- step until (max + step) by step) {
+      // append tuple value 
       mx += (i -> 0);
     }
     for( x <- 0 until rating_nos_by_user_collect.length) {

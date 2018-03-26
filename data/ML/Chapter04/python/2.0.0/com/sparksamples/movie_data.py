@@ -33,10 +33,14 @@ def main():
     plt.hist(values, bins=bins, color='lightblue', normed=True)
     plt.xticks(fontsize='12')
 
-    fig = matplotlib.pyplot.gcf()
+    # get figure
+    fig = plt.gcf()
     fig.set_size_inches(16, 10)
 
-    for tick in f.xaxis.get_major_ticks():
+    # get axis
+    ax = plt.gca()
+
+    for tick in ax.xaxis.get_major_ticks():
         tick.label.set_fontsize(8)
                 # specify integer or one of preset strings, e.g.
                 #tick.label.set_fontsize('x-small')

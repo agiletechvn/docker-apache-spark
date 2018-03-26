@@ -67,6 +67,8 @@ services:
       - 4040:4040
     volumes:      
       - ./conf/spark-driver:/conf
+      # this one for sharing X11
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - ./data:/tmp/data
       - ./scripts:/scripts
     networks:
