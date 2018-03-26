@@ -11,7 +11,8 @@
 */
 
 /* Load the raw ratings data from a file. Replace 'PATH' with the path to the MovieLens data */
-val rawData = sc.textFile("/PATH/ml-100k/u.data")
+val DATA_PATH = "/tmp/data/ML/Chapter04/data"
+val rawData = sc.textFile(DATA_PATH + "/ml-100k/u.data")
 rawData.first()
 // 14/03/30 13:21:25 INFO SparkContext: Job finished: first at <console>:17, took 0.002843 s
 // res24: String = 196	242	3	881250949
@@ -95,7 +96,7 @@ Rating(789,432,5.169863417126231)
 */
 
 /* Load movie titles to inspect the recommendations */
-val movies = sc.textFile("/PATH/ml-100k/u.item")
+val movies = sc.textFile(DATA_PATH + "/ml-100k/u.item")
 val titles = movies.map(line => line.split("\\|").take(2)).map(array => (array(0).toInt, array(1))).collectAsMap()
 titles(123)
 // res68: String = Frighteners, The (1996)
