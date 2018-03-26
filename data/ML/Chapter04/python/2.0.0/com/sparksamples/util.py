@@ -9,7 +9,7 @@ SPARK_HOME = "/usr/local/spark-2.3.0-bin-hadoop2.7"
 # allow us to override SPARK_HOME
 if not 'SPARK_HOME' in os.environ :
   os.environ['SPARK_HOME'] = SPARK_HOME
-
+  
 sys.path.append(SPARK_HOME + "/python")
 
 from pyspark import SparkContext
