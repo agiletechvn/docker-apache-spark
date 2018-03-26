@@ -20,8 +20,8 @@ from pyspark import SparkContext
 from pyspark import SparkConf
 from pyspark.sql import SparkSession
 
-master = "spark://spark-master:7077"
-# master = "local[2]"
+# master = "spark://spark-master:7077"
+master = "local[2]"
 conf = SparkConf().setAppName("First Spark App").setMaster(master)
 sc = SparkContext(conf=conf)
 spark = SparkSession(sc)

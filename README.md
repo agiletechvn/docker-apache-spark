@@ -50,3 +50,9 @@ MASTER=spark://spark-master:7077 spark-shell -i /scripts/etl.scala
 ```sh
 ./stop.sh
 ```
+
+> To run at your local computer, first install Spark, then link data folder to the same path as worker docker, or you have to deploy it on apache yarn(hadoop)
+
+```sh
+ln -s $PWD/data /tmp/data
+```
