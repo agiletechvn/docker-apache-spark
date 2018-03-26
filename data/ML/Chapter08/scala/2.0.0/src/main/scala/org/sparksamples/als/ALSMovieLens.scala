@@ -33,6 +33,7 @@ import java.text.SimpleDateFormat
 
 /**
  * An example demonstrating ALS.
+ * Currently support version apache 2.0, but we can add 1.6 or 3.0 in the future
  */
 object ALSMovieLens {
   val PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7";
