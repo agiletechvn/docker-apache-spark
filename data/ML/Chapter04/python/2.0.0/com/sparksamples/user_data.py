@@ -3,6 +3,7 @@ from util import get_user_data
 
 def main():
     user_data = get_user_data()
+    print(user_data.first)
     num_users = user_data.count()
     num_genders = len(user_data.groupBy("gender").count().collect())
     num_occupation = len(user_data.groupBy("occupation").count().collect())

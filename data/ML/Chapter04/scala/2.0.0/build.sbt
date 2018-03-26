@@ -1,7 +1,7 @@
 name := "chapter04"
 version := "1.1.1"
 scalaVersion := "2.11.6"
-sparkVersion := "2.3.0"
+val sparkVersion = "2.3.0"
 
 libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
 
