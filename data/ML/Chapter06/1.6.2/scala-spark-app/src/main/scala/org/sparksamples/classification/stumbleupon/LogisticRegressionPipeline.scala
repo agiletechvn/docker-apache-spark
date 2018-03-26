@@ -58,10 +58,10 @@ object LogisticRegressionPipeline {
     val accuracy = lrTotalCorrect/totalPoints
     println("Accuracy of LogisticRegression is: ", accuracy)
 
-    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/home/ubuntu/work/ml-resources/spark-ml/results/LR.xls")
-    holdout.rdd.map(x => x(1).asInstanceOf[Double]).repartition(1).saveAsTextFile("/home/ubuntu/work/ml-resources/spark-ml/results/Actual.xls")
+    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/tmp/data/ML/results/LR.xls")
+    holdout.rdd.map(x => x(1).asInstanceOf[Double]).repartition(1).saveAsTextFile("/tmp/data/ML/results/Actual.xls")
 
-    savePredictions(holdout, dataFrame, rm, "/home/ubuntu/work/ml-resources/spark-ml/results/LogisticRegression.csv")
+    savePredictions(holdout, dataFrame, rm, "/tmp/data/ML/results/LogisticRegression.csv")
   }
 
   def savePredictions(predictions:DataFrame, testRaw:DataFrame, regressionMetrics: RegressionMetrics, filePath:String) = {

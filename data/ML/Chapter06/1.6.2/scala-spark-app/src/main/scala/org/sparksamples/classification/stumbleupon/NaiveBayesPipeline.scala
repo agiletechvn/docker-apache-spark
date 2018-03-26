@@ -60,9 +60,9 @@ object NaiveBayesPipeline {
     val accuracy = new MulticlassMetrics(predictions.zip(labels)).precision
     println(s"  Accuracy : $accuracy")
 
-    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/home/ubuntu/work/ml-resources/spark-ml/results/NB.xls")
+    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/tmp/data/ML/results/NB.xls")
 
-    savePredictions(holdout, test, rm, "/home/ubuntu/work/ml-resources/spark-ml/results/NaiveBayes.csv")
+    savePredictions(holdout, test, rm, "/tmp/data/ML/results/NaiveBayes.csv")
   }
 
   def savePredictions(predictions:DataFrame, testRaw:DataFrame, regressionMetrics: RegressionMetrics, filePath:String) = {

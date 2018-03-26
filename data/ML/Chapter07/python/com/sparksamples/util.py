@@ -8,9 +8,9 @@ try:
 except ImportError as e:
     print ("Error importing Spark Modules", e)
     sys.exit(1)
-PROJECT_HOME = "/home/ubuntu/work/ml-resources/spark-ml"
+PROJECT_HOME = "/tmp/data/ML"
 path = PROJECT_HOME + "/Chapter_07/data/hour_noheader.csv"
-SPARK_HOME = "/home/ubuntu/work/spark-1.6.1-bin-hadoop2.6/"
+SPARK_HOME = "/usr/local/spark-2.3.0-bin-hadoop2.7"
 def get_records():
     conf = (SparkConf()
          .setMaster("local")

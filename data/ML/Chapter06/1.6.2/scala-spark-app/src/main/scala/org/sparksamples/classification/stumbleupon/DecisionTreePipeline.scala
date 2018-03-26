@@ -69,9 +69,9 @@ object DecisionTreePipeline {
     val accuracy = new MulticlassMetrics(predictions.zip(labels)).precision
     println(s"  Accuracy : $accuracy")
 
-    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/home/ubuntu/work/ml-resources/spark-ml/results/DT.xls")
+    holdout.rdd.map(x => x(0).asInstanceOf[Double]).repartition(1).saveAsTextFile("/tmp/data/ML/results/DT.xls")
 
-    savePredictions(holdout, test, rm, "/home/ubuntu/work/ml-resources/spark-ml/results/DecisionTree.csv")
+    savePredictions(holdout, test, rm, "/tmp/data/ML/results/DecisionTree.csv")
   }
 
   def savePredictions(predictions:DataFrame, testRaw:DataFrame, regressionMetrics: RegressionMetrics, filePath:String) = {
