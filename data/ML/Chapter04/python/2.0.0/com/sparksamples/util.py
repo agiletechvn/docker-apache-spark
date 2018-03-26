@@ -6,10 +6,14 @@ from pyspark.sql import SQLContext
 PATH = "/tmp/data/ML/Chapter04/data"
 SPARK_HOME = "/usr/local/spark-2.3.0-bin-hadoop2.7"
 
+# override data path from environment
+if 'DATA_PATH' in os.environ :
+    PATH = os.environ['DATA_PATH']
+
 # allow us to override SPARK_HOME
 if not 'SPARK_HOME' in os.environ :
   os.environ['SPARK_HOME'] = SPARK_HOME
-  
+
 sys.path.append(SPARK_HOME + "/python")
 
 from pyspark import SparkContext
@@ -17,6 +21,7 @@ from pyspark import SparkConf
 from pyspark.sql import SparkSession
 
 master = "spark://spark-master:7077"
+# master = "local[2]"
 conf = SparkConf().setAppName("First Spark App").setMaster(master)
 sc = SparkContext(conf=conf)
 spark = SparkSession(sc)

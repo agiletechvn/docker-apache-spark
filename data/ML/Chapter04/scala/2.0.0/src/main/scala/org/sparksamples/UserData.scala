@@ -14,7 +14,8 @@ package object UserData {
       StructField("gender", StringType, true),
       StructField("occupation", StringType, true),
       StructField("zipCode", StringType, true)));
-    val spConfig = (new SparkConf).setMaster("local").setAppName("SparkApp")
+    val master = "spark://spark-master:7077"
+    val spConfig = (new SparkConf).setMaster(master).setAppName("SparkApp")
     val spark = SparkSession
       .builder()
       .appName("SparkUserData").config(spConfig)
@@ -22,7 +23,7 @@ package object UserData {
 
     val user_df = spark.read.format("com.databricks.spark.csv")
       .option("delimiter", "|").schema(customSchema)
-      .load("/home/ubuntu/work/ml-resources/spark-ml/data/ml-100k/u.user")
+      .load("/tmp/data/ML/Chapter04/data/ml-100k/u.user")
     val first = user_df.first()
     println("First Record : " + first)
 
