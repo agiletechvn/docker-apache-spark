@@ -29,7 +29,7 @@ object FeatureExtraction {
   def getFeatures(): sql.DataFrame = {
     import spark.implicits._
     //val ratings = spark.read.textFile("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/spark-ml/Chapter_05/data/ml-100k 2/u.data").map(parseRating).toDF()
-    val ratings = spark.read.textFile("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/spark-ml/Chapter_05/2.0.0/scala-spark-app/src/main/scala/com/spark/recommendation/sample_movielens_ratings.txt").map(parseRating).toDF()
+    val ratings = spark.read.textFile("/tmp/data/ML/Chapter05/data/sample_movielens_ratings.txt").map(parseRating).toDF()
     println(ratings.first())
 
 //    val Array(training, test) = ratings.randomSplit(Array(0.8, 0.2))
