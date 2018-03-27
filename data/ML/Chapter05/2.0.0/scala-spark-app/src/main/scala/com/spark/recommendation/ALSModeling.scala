@@ -26,10 +26,12 @@ object ALSModeling {
       .setItemCol("movieId")
       .setRatingCol("rating")
 
+    // after having configuration is set, we fit by trainning data
     val model = als.fit(training)
     println(model.userFactors.count())
     println(model.itemFactors.count())
 
+    // then predict from input data
     val predictions = model.transform(test)
     println(predictions.printSchema())
 
