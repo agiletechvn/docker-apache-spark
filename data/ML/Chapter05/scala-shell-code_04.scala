@@ -98,6 +98,7 @@ Rating(789,432,5.169863417126231)
 /* Load movie titles to inspect the recommendations */
 val movies = sc.textFile(DATA_PATH + "/ml-100k/u.item")
 val titles = movies.map(line => line.split("\\|").take(2)).map(array => (array(0).toInt, array(1))).collectAsMap()
+// val titles = movies.map(line => line.split("\\|").take(2)).map(array => array(0).toInt -> array(1)).collectAsMap()
 titles(123)
 // res68: String = Frighteners, The (1996)
 val moviesForUser = ratings.keyBy(_.user).lookup(789)
