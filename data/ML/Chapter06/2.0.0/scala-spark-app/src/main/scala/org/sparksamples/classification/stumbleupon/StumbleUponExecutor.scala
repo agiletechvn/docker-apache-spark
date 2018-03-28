@@ -116,6 +116,7 @@ object StumbleUponExecutor {
       executeCommand(command, assembler, df4, sc)
   }
 
+  // switch case return short syntax
   def executeCommand(arg: String, vectorAssembler: VectorAssembler, dataFrame: DataFrame, sparkContext: SparkContext) = arg match {
     case "LR" => LogisticRegressionPipeline.logisticRegressionPipeline(vectorAssembler, dataFrame)
 
