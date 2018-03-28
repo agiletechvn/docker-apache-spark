@@ -36,6 +36,7 @@ object ALSModeling {
     println(predictions.printSchema())
 
     val evaluator = new RegressionEvaluator()
+      // root mean squared error
       .setMetricName("rmse")
       .setLabelCol("rating")
       .setPredictionCol("prediction")

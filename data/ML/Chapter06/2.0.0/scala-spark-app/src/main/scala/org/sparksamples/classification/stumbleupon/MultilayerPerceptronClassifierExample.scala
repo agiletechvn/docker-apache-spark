@@ -15,7 +15,7 @@ object MultilayerPerceptronClassifierExample {
 
     // Load the data stored in LIBSVM format as a DataFrame.
     val data = spark.read.format("libsvm")
-      .load("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/spark-ml/Chapter_06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/spark-data/sample_multiclass_classification_data.txt")
+      .load("/tmp/data/ML/Chapter06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/spark-data/sample_multiclass_classification_data.txt")
 
     // Split the data into train and test
     val splits = data.randomSplit(Array(0.6, 0.4), seed = 1234L)

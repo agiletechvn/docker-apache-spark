@@ -16,7 +16,7 @@ object LogisticRegressionSummaryExample {
     import spark.implicits._
 
     // Load training data
-    val training = spark.read.format("libsvm").load("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/spark-ml/Chapter_06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/spark-data/sample_libsvm_data.txt")
+    val training = spark.read.format("libsvm").load("/tmp/data/ML/Chapter06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/spark-data/sample_libsvm_data.txt")
 
     val lr = new LogisticRegression()
       .setMaxIter(10)

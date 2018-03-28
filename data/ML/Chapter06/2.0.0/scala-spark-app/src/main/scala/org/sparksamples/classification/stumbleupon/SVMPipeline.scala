@@ -13,7 +13,7 @@ object SVMPipeline {
   @transient lazy val logger = Logger.getLogger(getClass.getName)
 
   def svmPipeline(sc: SparkContext) = {
-    val records = sc.textFile("/tmp/data/ML/train_noheader.tsv").map(line => line.split("\t"))
+    val records = sc.textFile("/tmp/data/ML/Chapter06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/stumbleupon/train_noheader.tsv").map(line => line.split("\t"))
 
     val data = records.map { r =>
       val trimmed = r.map(_.replaceAll("\"", ""))

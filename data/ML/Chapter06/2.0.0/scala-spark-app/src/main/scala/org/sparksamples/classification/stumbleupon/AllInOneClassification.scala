@@ -23,7 +23,7 @@ object AllInOneClassification {
 		val sc = new SparkContext("local[2]", "Classification")
 
 		// get StumbleUpon dataset 'https://www.kaggle.com/c/stumbleupon'
-		val records = sc.textFile("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/breeze.io/src/main/scala/sparkMLlib/AllInOneClassification/train_noheader.tsv").map(line => line.split("\t"))
+		val records = sc.textFile("/tmp/data/ML/Chapter06/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/classification/dataset/stumbleupon/train_noheader.tsv").map(line => line.split("\t"))
 			//.map(records => (records(0), records(1), records(2)))
 
 		//records.foreach(println)
