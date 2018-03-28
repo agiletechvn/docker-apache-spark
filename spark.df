@@ -24,13 +24,6 @@ RUN \
   apt-get -y install python3-tk && \
   ln -s /usr/bin/pip3 /usr/bin/pip
 
-# install R and sparkR
-RUN \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
-  add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
-  apt-get update && \
-  apt-get install -y libssl-dev libcurl4-openssl-dev r-base && \
-  cd $SPARK_HOME/R/lib/SparkR/  && R -e "devtools::install('.')"
 
 # install sbt
 RUN \
@@ -70,5 +63,17 @@ ENV PYTHONPATH ${SPARK_HOME}/python/lib/py4j-0.10.6-src.zip:${SPARK_HOME}/python
 
 ENV PATH $PATH:${SPARK_HOME}/bin
 RUN curl -s ${SPARK_ARCHIVE} | tar -xz -C /usr/local/
+
+# install R and sparkR
+RUN \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
+  add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
+  apt-get update && \
+  apt-get install -y libssl-dev libcurl4-openssl-dev r-base && \
+  cd $SPARK_HOME/R/lib/SparkR/  && R -e "devtools::install('.')"
+
+# alternative compiling from the source code
+# RUN curl -s http://www-us.apache.org/dist/spark/spark-2.3.0/spark-2.3.0.tgz | tar -xzvf -C $SPARK_HOME && \
+# cd $SPARK_HOME && build/mvn -Pyarn -Phadoop-2.7 -Pnetlib-lgpl -DskipTests clean package
 
 WORKDIR $SPARK_HOME
