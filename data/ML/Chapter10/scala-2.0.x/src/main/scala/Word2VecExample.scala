@@ -1,3 +1,5 @@
+package org.apache.spark.examples.ml
+
 /**
   * Created by ubuntu on 1/12/17.
   */

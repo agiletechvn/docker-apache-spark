@@ -1,3 +1,5 @@
+package org.apache.spark.examples.ml
+
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.classification.NaiveBayes
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
@@ -17,7 +19,7 @@ object DocumentClassification {
   def main(args: Array[String]) {
     val sc = new SparkContext("local[2]", "First Spark App")
 
-    val path = "../data/20news-bydate-train/*"
+    val path = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-train/*"
     val rdd = sc.wholeTextFiles(path)
     val text = rdd.map { case (file, text) => text }
     val newsgroups = rdd.map { case (file, text) => file.split("/").takeRight(2).head }

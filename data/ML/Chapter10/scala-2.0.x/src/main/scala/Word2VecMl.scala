@@ -1,3 +1,5 @@
+package org.apache.spark.examples.ml
+
 import org.apache.spark.{SparkConf}
 import org.apache.spark.ml.feature.Word2Vec
 import org.apache.spark.sql.SparkSession
@@ -15,7 +17,7 @@ object Word2VecMl {
     import spark.implicits._
 
     val rawDF = spark.sparkContext
-      .wholeTextFiles("./data/20news-bydate-train/alt.atheism/*")
+      .wholeTextFiles("/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-train/alt.atheism/*")
 
     val temp = rawDF.map( x => {
       (x._2.filter(_ >= ' ').filter(! _.toString.startsWith("(")) )
@@ -33,7 +35,7 @@ object Word2VecMl {
     val result = model.transform(textDF)
     result.select("result").take(3).foreach(println)
     val ds = model.findSynonyms("philosophers", 5).select("word")
-    ds.rdd.saveAsTextFile("./output/alien-synonyms" +  System.nanoTime())
+    ds.rdd.saveAsTextFile("/tmp/data/ML/Chapter10/scala-2.0.x/output/alien-synonyms" +  System.nanoTime())
     ds.show()
     spark.stop()
   }

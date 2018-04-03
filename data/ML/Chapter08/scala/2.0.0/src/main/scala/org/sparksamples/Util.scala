@@ -9,7 +9,7 @@ import org.apache.spark.sql.types.{StringType, StructField, StructType}
   */
 object Util {
   val PATH = "/usr/local/spark-2.3.0-bin-hadoop2.7"
-  val DATA_PATH= "../../../data/ml-100k"
+  val DATA_PATH= "/tmp/data/ML/Chapter04/data/ml-100k"
   val PATH_MOVIES = DATA_PATH + "/u.item"
 
   def reduceDimension2(x: Vector) : String= {

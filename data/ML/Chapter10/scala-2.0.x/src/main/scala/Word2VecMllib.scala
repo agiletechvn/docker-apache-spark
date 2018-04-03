@@ -1,3 +1,5 @@
+package org.apache.spark.examples.ml
+
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.linalg.{SparseVector => SV}
 
@@ -10,7 +12,7 @@ object Word2VecMllib {
   def main(args: Array[String]) {
     val sc = new SparkContext("local[2]", "Word2Vector App")
 
-    val path = "./data/20news-bydate-train/alt.atheism/*"
+    val path = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-train/alt.atheism/*"
     val rdd = sc.wholeTextFiles(path)
     val text = rdd.map { case (file, text) => text }
     val newsgroups = rdd.map { case (file, text) => file.split("/").takeRight(2).head }

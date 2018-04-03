@@ -53,7 +53,7 @@ object KMeansExample {
 
     // $example on$
     // Loads data.
-    val dataset = spark.read.format("libsvm").load(PATH + "data/mllib/sample_kmeans_data.txt")
+    val dataset = spark.read.format("libsvm").load(PATH + "/data/mllib/sample_kmeans_data.txt")
     val cols = dataset.columns
     dataset.show()
 

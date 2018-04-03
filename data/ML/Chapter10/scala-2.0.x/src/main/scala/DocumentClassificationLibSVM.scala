@@ -19,7 +19,7 @@ object DocumentClassificationLibSVM {
       .appName("SparkRatingData").config(spConfig)
       .getOrCreate()
 
-    val data = spark.read.format("libsvm").load("./output/20news-by-date-train-libsvm/part-combined")
+    val data = spark.read.format("libsvm").load("/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-by-date-train-libsvm/part-combined")
 
     val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3), seed = 1L)
 
