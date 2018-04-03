@@ -6,8 +6,9 @@ import matplotlib
 from com.sparksamples.util import path
 
 
-os.environ['SPARK_HOME'] = "/home/ubuntu/work/spark-1.6.0-bin-hadoop2.6/"
-sys.path.append("/home/ubuntu/work/spark-1.6.0-bin-hadoop2.6//python")
+if not 'SPARK_HOME' in os.environ :
+  os.environ['SPARK_HOME'] = "/usr/local/spark-2.3.0-bin-hadoop2.7"
+sys.path.append(SPARK_HOME + "/python")
 
 try:
     from pyspark import SparkContext

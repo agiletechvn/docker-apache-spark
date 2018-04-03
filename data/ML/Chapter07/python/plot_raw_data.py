@@ -6,8 +6,9 @@ import matplotlib
 from com.sparksamples.util import path
 
 
-os.environ['SPARK_HOME'] = "/home/ubuntu/work/spark-1.6.0-bin-hadoop2.6/"
-sys.path.append("/home/ubuntu/work/spark-1.6.0-bin-hadoop2.6//python")
+if not 'SPARK_HOME' in os.environ :
+  os.environ['SPARK_HOME'] = "/usr/local/spark-2.3.0-bin-hadoop2.7"
+sys.path.append(os.environ['SPARK_HOME'] + "/python")
 
 try:
     from pyspark import SparkContext
@@ -20,15 +21,20 @@ import pylab as P
 
 
 def main():
-    sc = SparkContext(appName="PythonApp")
+    
+    master = "spark://spark-master:7077" 
+    # master = "local[2]"
+    conf = SparkConf().setAppName("PythonApp").setMaster(master)
+    sc = SparkContext(conf=conf)
+
     raw_data = sc.textFile(path)
     num_data = raw_data.count()
     records = raw_data.map(lambda x: x.split(","))
     x = records.map(lambda r : float(r[-1]))
-    print records.first()
-    print x.first()
+    print (records.first())
+    print (x.first())
     targets = records.map(lambda r: float(r[-1])).collect()
-    print targets
+    print (targets)
     P.hist(targets, bins=40, color='lightblue', normed=True)
     fig = matplotlib.pyplot.gcf()
     fig.set_size_inches(40, 10)

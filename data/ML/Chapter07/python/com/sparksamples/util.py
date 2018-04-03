@@ -9,7 +9,7 @@ except ImportError as e:
     print ("Error importing Spark Modules", e)
     sys.exit(1)
 PROJECT_HOME = "/tmp/data/ML"
-path = PROJECT_HOME + "/Chapter_07/data/hour_noheader.csv"
+path = PROJECT_HOME + "/Chapter07/scala/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/regression/dataset/BikeSharing/hour_noheader.csv"
 SPARK_HOME = "/usr/local/spark-2.3.0-bin-hadoop2.7"
 def get_records():
     conf = (SparkConf()

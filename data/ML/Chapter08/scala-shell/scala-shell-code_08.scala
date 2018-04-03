@@ -11,10 +11,10 @@
 /* Replace 'PATH' with the path to the MovieLens data */
 
 // load movie data
-val movies = sc.textFile("/PATH/ml-100k/u.item")
+val movies = sc.textFile("/tmp/data/ML/Chapter04/data/ml-100k/u.item")
 println(movies.first)
 // 1|Toy Story (1995)|01-Jan-1995||http://us.imdb.com/M/title-exact?Toy%20Story%20(1995)|0|0|0|1|1|1|0|0|0|0|0|0|0|0|0|0|0|0|0
-val genres = sc.textFile("/PATH/ml-100k/u.genre")
+val genres = sc.textFile("/tmp/data/ML/Chapter04/data/ml-100k/u.genre")
 genres.take(5).foreach(println)
 /*
 unknown|0
@@ -42,7 +42,7 @@ println(titlesAndGenres.first)
 // Run ALS model to generate movie and user factors
 import org.apache.spark.mllib.recommendation.ALS
 import org.apache.spark.mllib.recommendation.Rating
-val rawData = sc.textFile("/PATH/ml-100k/u.data")
+val rawData = sc.textFile("/tmp/data/ML/Chapter04/data/ml-100k/u.data")
 val rawRatings = rawData.map(_.split("\t").take(3))
 val ratings = rawRatings.map{ case Array(user, movie, rating) => Rating(user.toInt, movie.toInt, rating.toDouble) }
 ratings.cache
