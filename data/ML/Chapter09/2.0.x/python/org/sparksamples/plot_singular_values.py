@@ -6,7 +6,7 @@ PATH = "../../../data"
 
 
 def main():
-    file_name = '/tmp/data/ML/Chapter_09/data/s.csv'
+    file_name = '/tmp/data/ML/Chapter09/data/s.csv'
     data = np.genfromtxt(file_name, delimiter=',')
 
     plt.plot(data)

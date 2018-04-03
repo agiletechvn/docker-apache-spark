@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageFilter
 import os
 
-PATH = "../../../../data"
+PATH = "/tmp/data/ML/Chapter09/data"
 
 
 def main():
 
-    path = PATH + "/lfw/Aaron_Eckhart/Aaron_Eckhart_0001.jpg"
+    path = PATH + "/Aaron_Eckhart_0001.jpg"
 
     im = Image.open(path)
     im.show()
