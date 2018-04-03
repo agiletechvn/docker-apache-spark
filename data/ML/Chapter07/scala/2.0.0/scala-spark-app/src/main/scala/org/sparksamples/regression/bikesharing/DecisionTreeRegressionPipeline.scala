@@ -50,7 +50,7 @@ object DecisionTreeRegressionPipeline {
   def decTreeRegressionWithSVMFormat(spark: SparkSession) = {
     // Load training data
     val training = spark.read.format("libsvm")
-      .load("/Users/manpreet.singh/Sandbox/codehub/github/machinelearning/spark-ml/Chapter_07/scala/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/regression/dataset/BikeSharing/lsvmHours.txt")
+      .load("/tmp/data/ML/Chapter07/scala/2.0.0/scala-spark-app/src/main/scala/org/sparksamples/regression/dataset/BikeSharing/lsvmHours.txt")
 
     // Automatically identify categorical features, and index them.
     // Here, we treat features with > 4 distinct values as continuous.

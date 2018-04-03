@@ -50,8 +50,8 @@ object BikeSharingExecutor {
 
     val vectorIndexer = new VectorIndexer().setInputCol("rawFeatures").setOutputCol("features").setMaxCategories(2)
 
-    // set as an argument
-    val command = "GLR_SVM"
+    // set as an argument, can not reassign val 
+    val command = if (args.length >= 1) args(0) else "GLR_SVM"
 
     executeCommand(command, vectorAssembler, vectorIndexer, df2, spark)
   }
