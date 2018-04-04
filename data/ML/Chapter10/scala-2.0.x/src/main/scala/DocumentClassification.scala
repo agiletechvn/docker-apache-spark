@@ -1,5 +1,6 @@
 package org.apache.spark.examples.ml
 
+import org.apache.commons.io.FileUtils
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.classification.NaiveBayes
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
@@ -42,6 +43,7 @@ object DocumentClassification {
     } }
 
     //TODO uncomment to generate libsvm format
+    FileUtils.deleteQuietly(new File("/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-train-libsvm"))
     MLUtils.saveAsLibSVMFile(train,"/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-train-libsvm")
 
     train.cache
@@ -63,6 +65,7 @@ object DocumentClassification {
     } }
 
     //TODO uncomment to generate libsvm format
+    FileUtils.deleteQuietly(new File("/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-test-libsvm"))
     MLUtils.saveAsLibSVMFile(test,"/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-test-libsvm")
 
 
