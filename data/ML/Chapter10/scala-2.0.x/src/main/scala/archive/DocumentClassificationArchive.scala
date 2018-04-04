@@ -28,7 +28,7 @@ object DocumentClassificationArchive {
       .getOrCreate()
     import spark.implicits._
 
-    val path = "../data/20news-bydate-sample/*"
+    val path = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-train/*"
     val rdd = sc.wholeTextFiles(path)
     val text = rdd.map { case (file, text) => text }
     val newsgroups = rdd.map { case (file, text) => file.split("/").takeRight(2).head }
@@ -95,7 +95,7 @@ object DocumentClassificationArchive {
   }
 
   def getRescaledTestData(sc : SparkContext, spark : SparkSession) : RDD[LabeledPoint] = {
-    val path = "../data/20news-bydate-test/*"
+    val path = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-test/*"
     val rdd = sc.wholeTextFiles(path)
     val text = rdd.map { case (file, text) => text }
     val newsgroups = rdd.map { case (file, text) => file.split("/").takeRight(2).head }

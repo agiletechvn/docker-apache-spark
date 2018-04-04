@@ -12,7 +12,7 @@
 */
 
 /* Replace 'PATH' with the path to the 20 Newsgroups Data */
-val path = "/PATH/20news-bydate-train/*"
+val path = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-train/*"
 val rdd = sc.wholeTextFiles(path)
 // count the number of records in the dataset
 println(rdd.count)
@@ -373,7 +373,7 @@ val train = zipped.map { case (topic, vector) => LabeledPoint(newsgroupsMap(topi
 train.cache
 val model = NaiveBayes.train(train, lambda = 0.1)
 
-val testPath = "/PATH/20news-bydate-test/*"
+val testPath = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-test/*"
 val testRDD = sc.wholeTextFiles(testPath)
 val testLabels = testRDD.map { case (file, text) => 
 	val topic = file.split("/").takeRight(2).head

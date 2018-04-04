@@ -42,12 +42,12 @@ object DocumentClassification {
     } }
 
     //TODO uncomment to generate libsvm format
-    MLUtils.saveAsLibSVMFile(train,"./output/20news-by-date-train-libsvm")
+    MLUtils.saveAsLibSVMFile(train,"/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-train-libsvm")
 
     train.cache
     val model = NaiveBayes.train(train, lambda = 0.1)
 
-    val testPath = "../data/20news-bydate-test/*"
+    val testPath = "/tmp/data/ML/Chapter10/scala-2.0.x/data/20news-bydate-test/*"
     val testRDD = sc.wholeTextFiles(testPath)
     val testLabels = testRDD.map { case (file, text) =>
       val topic = file.split("/").takeRight(2).head
@@ -63,7 +63,7 @@ object DocumentClassification {
     } }
 
     //TODO uncomment to generate libsvm format
-    MLUtils.saveAsLibSVMFile(test,"./output/20news-by-date-test-libsvm")
+    MLUtils.saveAsLibSVMFile(test,"/tmp/data/ML/Chapter10/scala-2.0.x/output/20news-by-date-test-libsvm")
 
 
     val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
