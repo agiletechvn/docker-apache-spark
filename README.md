@@ -80,3 +80,6 @@ export DISPLAY=[$ip or docker.for.mac.localhost]:$display_number
 # then run sample:
 spark-submit --class org.sparksamples.UserRatingsChart --packages org.jfree:jfreechart:1.0.14,com.github.wookietreiber:scala-chart_2.11:latest.integration --master spark://spark-master:7077  target/scala-2.11/chapter04_2.11-1.1.1.jar
 ```
+
+## For Big data with Machine learning  
+[Machine learning](./data/ML/README.md)
